@@ -40,12 +40,9 @@ body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Poppins',sans-se
 .hero .date-text{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3vw,2rem);color:#e8a0bf;font-style:italic;margin-bottom:1.5rem;animation:fadeInUp 1s ease .5s both}
 .hero>p{font-size:clamp(.95rem,2vw,1.15rem);max-width:600px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:2rem;animation:fadeInUp 1s ease .7s both}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeInUp 1s ease .9s both}
-.btn-primary,.btn-secondary{padding:.8rem 2rem;border-radius:50px;font-size:.95rem;font-family:'Poppins',sans-serif;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
-.btn-primary{background:linear-gradient(135deg,#ff6b9d,#c767ff);color:#fff;border:none;box-shadow:0 4px 20px rgba(255,107,157,.4)}
+.btn-primary{padding:.8rem 2rem;border-radius:50px;font-size:.95rem;font-family:'Poppins',sans-serif;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#ff6b9d,#c767ff);color:#fff;border:none;box-shadow:0 4px 20px rgba(255,107,157,.4)}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,157,.5)}
-.btn-secondary{background:transparent;color:#ffd1e8;border:1px solid rgba(255,107,157,.4);backdrop-filter:blur(10px)}
-.btn-secondary:hover{background:rgba(255,107,157,.15);transform:translateY(-3px)}
-.btn-primary svg,.btn-secondary svg{width:18px;height:18px}
+.btn-primary svg{width:18px;height:18px}
 
 @keyframes pulse3D{0%,100%{transform:perspective(500px) rotateY(0deg) scale(1)}50%{transform:perspective(500px) rotateY(15deg) scale(1.05)}}
 @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -90,7 +87,6 @@ section{position:relative;z-index:1;padding:5rem 1.5rem}
 .poem-card::before{content:'✿';position:absolute;top:10px;left:20px;font-size:1.5rem;opacity:.15}
 .poem-card::after{content:'✿';position:absolute;bottom:10px;right:20px;font-size:1.5rem;opacity:.15}
 .poem-text{font-family:'Playfair Display',serif;font-size:1.1rem;line-height:2;color:#ffd1e8;font-style:italic;white-space:pre-line;transition:opacity .5s ease}
-.poem-author{margin-top:1.5rem;color:rgba(255,255,255,.5);font-size:.9rem;transition:opacity .5s ease}
 .poem-nav{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
 .poem-nav button{background:linear-gradient(135deg,rgba(255,107,157,.3),rgba(199,97,255,.3));border:1px solid rgba(255,107,157,.3);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
 .poem-nav button svg{width:16px;height:16px}
@@ -111,7 +107,6 @@ section{position:relative;z-index:1;padding:5rem 1.5rem}
 .falling-rose svg{width:32px;height:32px}
 @keyframes fallDown{0%{transform:translateY(-50px) rotate(0deg) scale(0);opacity:1}20%{transform:translateY(15vh) rotate(90deg) scale(1.2);opacity:1}100%{transform:translateY(105vh) rotate(720deg) scale(.5);opacity:0}}
 
-/* ===== QUIZ STYLES ===== */
 .quiz-container{max-width:700px;margin:0 auto}
 .quiz-card{background:linear-gradient(145deg,rgba(255,107,157,.1),rgba(199,97,255,.1));border:1px solid rgba(255,107,157,.2);border-radius:20px;padding:2.5rem 2rem;backdrop-filter:blur(10px);position:relative;overflow:hidden}
 .quiz-progress{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
@@ -137,7 +132,6 @@ section{position:relative;z-index:1;padding:5rem 1.5rem}
 .quiz-next-btn{display:none;margin:0 auto;padding:.8rem 2rem;border-radius:50px;background:linear-gradient(135deg,#ff6b9d,#c767ff);color:#fff;border:none;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(255,107,157,.4)}
 .quiz-next-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,157,.5)}
 .quiz-next-btn.visible{display:block}
-
 .quiz-result{display:none;text-align:center;padding:1rem 0}
 .quiz-result.show{display:block}
 .quiz-result-icon{font-size:4rem;margin-bottom:1rem;animation:pulse3D 2s ease-in-out infinite}
@@ -163,7 +157,7 @@ footer .footer-heart{color:#ff6b9d}
   .quiz-card{padding:1.5rem 1.2rem}
   .quiz-option{padding:.85rem 1rem}
   .hero-buttons{gap:.6rem}
-  .btn-primary,.btn-secondary{padding:.7rem 1.2rem;font-size:.82rem}
+  .btn-primary{padding:.7rem 1.2rem;font-size:.82rem}
 }
 </style>
 </head>
@@ -181,13 +175,12 @@ footer .footer-heart{color:#ff6b9d}
   <symbol id="icon-chevron-right" viewBox="0 0 64 64"><path d="M24 12l20 20-20 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="icon-chevron-down" viewBox="0 0 64 64"><path d="M12 24l20 20 20-20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="icon-music" viewBox="0 0 64 64"><path d="M24 52V18l28-8v34" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><ellipse cx="18" cy="52" rx="8" ry="6" fill="#fff"/><ellipse cx="46" cy="44" rx="8" ry="6" fill="#fff"/></symbol>
-  <symbol id="icon-music-off" viewBox="0 0 64 64"><path d="M24 52V18l28-8v34" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".4"/><ellipse cx="18" cy="52" rx="8" ry="6" fill="#fff" opacity=".4"/><ellipse cx="46" cy="44" rx="8" ry="6" fill="#fff" opacity=".4"/><line x1="8" y1="8" x2="56" y2="56" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#fff" stroke-width="2.5" opacity=".6"/><path d="M26 18l20 14-20 14z" fill="#fff"/></symbol>
+  <symbol id="icon-quiz" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#ff6b9d" stroke-width="3"/><text x="32" y="44" text-anchor="middle" fill="#ffd1e8" font-family="serif" font-size="32" font-weight="700">?</text></symbol>
   <symbol id="icon-heart-purple" viewBox="0 0 64 64"><path d="M32 56S8 40 8 22c0-8 6-14 14-14 5 0 8 3 10 6 2-3 5-6 10-6 8 0 14 6 14 14C56 40 32 56 32 56z" fill="url(#heartPurpGrad)"/><linearGradient id="heartPurpGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ce93d8"/><stop offset="100%" style="stop-color:#7b1fa2"/></linearGradient></symbol>
   <symbol id="icon-clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#ff6b9d" stroke-width="3"/><path d="M32 16v18l12 8" fill="none" stroke="#ffd1e8" stroke-width="3" stroke-linecap="round"/></symbol>
   <symbol id="icon-star" viewBox="0 0 64 64"><path d="M32 4l8 20h20l-16 12 6 20-18-12-18 12 6-20L4 24h20z" fill="url(#starGrad)"/><linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd54f"/><stop offset="100%" style="stop-color:#ff6b9d"/></linearGradient></symbol>
   <symbol id="icon-book" viewBox="0 0 64 64"><path d="M8 10h20c4 0 4 2 4 4v38c0-2-2-4-6-4H8V10z" fill="rgba(206,147,216,.5)" stroke="#ce93d8" stroke-width="2"/><path d="M56 10H36c-4 0-4 2-4 4v38c0-2 2-4 6-4h18V10z" fill="rgba(244,143,177,.5)" stroke="#f48fb1" stroke-width="2"/></symbol>
-  <symbol id="icon-play" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#fff" stroke-width="2.5" opacity=".6"/><path d="M26 18l20 14-20 14z" fill="#fff"/></symbol>
-  <symbol id="icon-quiz" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#ff6b9d" stroke-width="3"/><text x="32" y="44" text-anchor="middle" fill="#ffd1e8" font-family="serif" font-size="32" font-weight="700">?</text></symbol>
 </defs>
 </svg>
 
@@ -216,7 +209,7 @@ footer .footer-heart{color:#ff6b9d}
   <p>Dünyayı güzelleştiren, hayata anlam katan, sevgiyi ve gücü bir arada taşıyan tüm kadınlarımızın Kadınlar Günü kutlu olsun.</p>
   <div class="hero-buttons">
     <a href="#kadinlar" class="btn-primary"><svg><use href="#icon-star"/></svg> İlham Veren Kadınlar</a>
-    <a href="#siir" class="btn-secondary"><svg><use href="#icon-book"/></svg> Şiirler</a>
+    <a href="#siir" class="btn-primary"><svg><use href="#icon-book"/></svg> Şiirler</a>
     <a href="#quiz" class="btn-primary"><svg><use href="#icon-quiz"/></svg> Quiz</a>
   </div>
   <div class="ticker">
@@ -269,7 +262,6 @@ footer .footer-heart{color:#ff6b9d}
 Sessiz sedasız, dünyayı çevirir.
 Gözlerinde umut, ellerinde sevgi,
 Her dokunuşunda hayat belirir.</div>
-      <div class="poem-author" id="poemAuthor">— Anonim</div>
     </div>
     <div class="poem-nav">
       <button onclick="prevPoem()"><svg><use href="#icon-chevron-left"/></svg></button>
@@ -330,8 +322,9 @@ Her dokunuşunda hayat belirir.</div>
 
 <footer>
   <div class="footer-icons"><svg><use href="#icon-flower"/></svg><svg><use href="#icon-heart-purple"/></svg><svg><use href="#icon-flower"/></svg></div>
-  <p>© 2026 HerGün8Mart | Tüm kadınların <span class="footer-heart">8 Mart Dünya Kadınlar Günü</span> kutlu olsun!</p>
+  <p>Tüm kadınların <span class="footer-heart">8 Mart Dünya Kadınlar Günü</span> kutlu olsun!</p>
   <p style="margin-top:.5rem;opacity:.4;font-size:.75rem">Sevgi, saygı ve eşitlikle 💜</p>
+  <p style="margin-top:.4rem;opacity:.35;font-size:.7rem">© 2026 Karaca.dev Tüm hakları saklıdır.</p>
 </footer>
 
 <div class="rose-overlay" id="roseOverlay"></div>
@@ -394,16 +387,16 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 const poems=[
-  {text:'Bir kadın vardır, dağları devirir,\nSessiz sedasız, dünyayı çevirir.\nGözlerinde umut, ellerinde sevgi,\nHer dokunuşunda hayat belirir.',author:'— Anonim'},
-  {text:'Annem bir çiçekti, toprağa düşen,\nKökleriyle beni saran, besleyen.\nOnun gölgesinde büyüdüm güneş gibi,\nŞimdi ben de ışık oldum, o öğreten.',author:'— Anonim'},
-  {text:'Kadın demek cesaret demek,\nKaranlıkta yıldız olmak demek.\nDüşse de kalkmak, ağlasa da gülmek,\nHayatın kendisi olmak demek.',author:'— Anonim'},
-  {text:'Sen ki rüzgârsın, durulmaz,\nSen ki denizsin, kurulmaz.\nBu dünya sensiz dönemez,\nSen ki kadınsın, unutulmaz.',author:'— Anonim'}
+  {text:'Bir kadın vardır, dağları devirir,\nSessiz sedasız, dünyayı çevirir.\nGözlerinde umut, ellerinde sevgi,\nHer dokunuşunda hayat belirir.'},
+  {text:'Annem bir çiçekti, toprağa düşen,\nKökleriyle beni saran, besleyen.\nOnun gölgesinde büyüdüm güneş gibi,\nŞimdi ben de ışık oldum, o öğreten.'},
+  {text:'Kadın demek cesaret demek,\nKaranlıkta yıldız olmak demek.\nDüşse de kalkmak, ağlasa da gülmek,\nHayatın kendisi olmak demek.'},
+  {text:'Sen ki rüzgârsın, durulmaz,\nSen ki denizsin, kurulmaz.\nBu dünya sensiz dönemez,\nSen ki kadınsın, unutulmaz.'}
 ];
 let currentPoem=0;
 function showPoem(i){
-  const t=document.getElementById('poemText'),a=document.getElementById('poemAuthor');
-  t.style.opacity=0;a.style.opacity=0;
-  setTimeout(()=>{t.textContent=poems[i].text;a.textContent=poems[i].author;t.style.opacity=1;a.style.opacity=1},300);
+  const t=document.getElementById('poemText');
+  t.style.opacity=0;
+  setTimeout(()=>{t.textContent=poems[i].text;t.style.opacity=1},300);
 }
 function nextPoem(){currentPoem=(currentPoem+1)%poems.length;showPoem(currentPoem)}
 function prevPoem(){currentPoem=(currentPoem-1+poems.length)%poems.length;showPoem(currentPoem)}
@@ -470,9 +463,7 @@ function shuffleArray(arr){
 
 function quizInit(){
   quizQuestions=shuffleArray(allQuestions).slice(0,10);
-  quizIdx=0;
-  quizScore=0;
-  quizAnswered=false;
+  quizIdx=0;quizScore=0;quizAnswered=false;
   document.getElementById('quizResult').classList.remove('show');
   document.getElementById('quizBody').style.display='block';
   quizRender();
@@ -485,7 +476,6 @@ function quizRender(){
   document.getElementById('qProgressFill').style.width=((quizIdx+1)*10)+'%';
   document.getElementById('qScoreDisplay').textContent='✨ '+quizScore+' Puan';
   document.getElementById('qQuestion').textContent=q.q;
-
   const optContainer=document.getElementById('qOptions');
   optContainer.innerHTML='';
   q.opts.forEach((opt,i)=>{
@@ -495,87 +485,55 @@ function quizRender(){
     div.addEventListener('click',()=>quizAnswer(i,div));
     optContainer.appendChild(div);
   });
-
   const fb=document.getElementById('qFeedback');
-  fb.className='quiz-feedback';
-  fb.textContent='';
-
-  const nb=document.getElementById('qNextBtn');
-  nb.classList.remove('visible');
-
+  fb.className='quiz-feedback';fb.textContent='';
+  document.getElementById('qNextBtn').classList.remove('visible');
   quizAnswered=false;
 }
 
 function quizAnswer(idx,el){
   if(quizAnswered)return;
   quizAnswered=true;
-
   const q=quizQuestions[quizIdx];
   const allOpts=document.querySelectorAll('#qOptions .quiz-option');
   allOpts.forEach(o=>o.classList.add('disabled'));
-
   const fb=document.getElementById('qFeedback');
-
   if(idx===q.correct){
-    el.classList.add('correct');
-    quizScore++;
+    el.classList.add('correct');quizScore++;
     document.getElementById('qScoreDisplay').textContent='✨ '+quizScore+' Puan';
     fb.className='quiz-feedback correct-fb show';
     fb.textContent='✅ Doğru! '+q.info;
   }else{
-    el.classList.add('wrong');
-    allOpts[q.correct].classList.add('correct');
+    el.classList.add('wrong');allOpts[q.correct].classList.add('correct');
     fb.className='quiz-feedback wrong-fb show';
     fb.textContent='❌ Yanlış! Doğru cevap: '+q.opts[q.correct]+'. '+q.info;
   }
-
   const nb=document.getElementById('qNextBtn');
-  if(quizIdx<9){
-    nb.textContent='Sonraki Soru →';
-  }else{
-    nb.textContent='Sonuçları Gör 🎉';
-  }
+  nb.textContent=quizIdx<9?'Sonraki Soru →':'Sonuçları Gör 🎉';
   nb.classList.add('visible');
 }
 
 function quizNextQuestion(){
   quizIdx++;
-  if(quizIdx<10){
-    quizRender();
-  }else{
-    quizShowResult();
-  }
+  if(quizIdx<10){quizRender();}else{quizShowResult();}
 }
 
 function quizShowResult(){
   document.getElementById('quizBody').style.display='none';
-  const r=document.getElementById('quizResult');
-  r.classList.add('show');
-
+  const r=document.getElementById('quizResult');r.classList.add('show');
   document.getElementById('qResultScore').textContent=quizScore+' / 10';
-
   let icon,title,msg;
-  if(quizScore===10){
-    icon='🏆';title='Mükemmel!';msg='Tüm soruları doğru bildin! Kadın tarihi konusunda gerçek bir uzmansın. Tebrikler!';
-  }else if(quizScore>=8){
-    icon='🌟';title='Harika!';msg='Çok başarılı bir sonuç! Kadın hakları ve tarihi hakkında derin bilgin var.';
-  }else if(quizScore>=6){
-    icon='💜';title='İyi İş!';msg='Güzel bir performans! Biraz daha araştırmayla tam puan alabilirsin.';
-  }else if(quizScore>=4){
-    icon='🌸';title='Fena Değil!';msg='Kadın tarihi hakkında temel bilgilerin var. Öğrenmeye devam et!';
-  }else{
-    icon='💪';title='Pes Etme!';msg='Kadın tarihi keşfedilmeyi bekliyor! Tekrar dene ve daha çok öğren.';
-  }
-
+  if(quizScore===10){icon='🏆';title='Mükemmel!';msg='Tüm soruları doğru bildin! Kadın tarihi konusunda gerçek bir uzmansın. Tebrikler!';}
+  else if(quizScore>=8){icon='🌟';title='Harika!';msg='Çok başarılı bir sonuç! Kadın hakları ve tarihi hakkında derin bilgin var.';}
+  else if(quizScore>=6){icon='💜';title='İyi İş!';msg='Güzel bir performans! Biraz daha araştırmayla tam puan alabilirsin.';}
+  else if(quizScore>=4){icon='🌸';title='Fena Değil!';msg='Kadın tarihi hakkında temel bilgilerin var. Öğrenmeye devam et!';}
+  else{icon='💪';title='Pes Etme!';msg='Kadın tarihi keşfedilmeyi bekliyor! Tekrar dene ve daha çok öğren.';}
   document.getElementById('qResultIcon').textContent=icon;
   document.getElementById('qResultTitle').textContent=title;
   document.getElementById('qResultMsg').textContent=msg;
 }
 
-function quizRestart(){
-  quizInit();
-}
-
+function quizRestart(){quizInit();}
 quizInit();
 </script>
 </body>
