@@ -130,7 +130,7 @@ section{position:relative;z-index:1;padding:5rem 1.5rem}
 .quiz-option.correct .quiz-option-letter{background:linear-gradient(135deg,#4caf50,#66bb6a)}
 .quiz-option.wrong .quiz-option-letter{background:linear-gradient(135deg,#f44336,#ef5350)}
 .quiz-option-text{font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.4}
-.quiz-feedback{text-align:center;padding:1rem;border-radius:12px;margin-bottom:1.2rem;font-size:.9rem;line-height:1.5;opacity:0;transform:translateY(10px);transition:all .4s ease;max-height:0;overflow:hidden}
+.quiz-feedback{text-align:center;padding:0;border-radius:12px;margin-bottom:1.2rem;font-size:.9rem;line-height:1.5;opacity:0;transform:translateY(10px);transition:all .4s ease;max-height:0;overflow:hidden}
 .quiz-feedback.show{opacity:1;transform:translateY(0);max-height:200px;padding:1rem}
 .quiz-feedback.correct-fb{background:rgba(76,175,80,.12);border:1px solid rgba(76,175,80,.3);color:#a5d6a7}
 .quiz-feedback.wrong-fb{background:rgba(244,67,54,.12);border:1px solid rgba(244,67,54,.3);color:#ef9a9a}
@@ -152,7 +152,6 @@ footer{position:relative;z-index:1;text-align:center;padding:3rem 1.5rem;backgro
 .footer-icons svg{width:28px;height:28px}
 footer p{color:rgba(255,255,255,.5);font-size:.85rem}
 footer .footer-heart{color:#ff6b9d}
-.footer-copy{font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:.3rem}
 
 @media(max-width:600px){
   .women-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
@@ -163,6 +162,8 @@ footer .footer-heart{color:#ff6b9d}
   .countdown-label{font-size:.65rem;letter-spacing:1px}
   .quiz-card{padding:1.5rem 1.2rem}
   .quiz-option{padding:.85rem 1rem}
+  .hero-buttons{gap:.6rem}
+  .btn-primary,.btn-secondary{padding:.7rem 1.2rem;font-size:.82rem}
 }
 </style>
 </head>
@@ -216,6 +217,7 @@ footer .footer-heart{color:#ff6b9d}
   <div class="hero-buttons">
     <a href="#kadinlar" class="btn-primary"><svg><use href="#icon-star"/></svg> İlham Veren Kadınlar</a>
     <a href="#siir" class="btn-secondary"><svg><use href="#icon-book"/></svg> Şiirler</a>
+    <a href="#quiz" class="btn-primary"><svg><use href="#icon-quiz"/></svg> Quiz</a>
   </div>
   <div class="ticker">
     <div class="ticker-item"><div class="ticker-num">3.9B+</div><div class="ticker-label">Dünyada Kadın</div></div>
@@ -256,24 +258,6 @@ footer .footer-heart{color:#ff6b9d}
 </section>
 
 <div class="section-divider"><svg><use href="#icon-flower"/></svg></div>
-
-<!-- İLHAM VEREN KADINLAR -->
-<section id="kadinlar">
-  <h2 class="section-title"><svg><use href="#icon-star"/></svg> İlham Veren Kadınlar <svg><use href="#icon-star"/></svg></h2>
-  <p class="section-subtitle">Tarihe iz bırakan güçlü kadınlar</p>
-  <div class="women-grid">
-    <div class="woman-card"><div class="woman-avatar">👩‍🔬</div><h3>Marie Curie</h3><div class="woman-role">Bilim İnsanı</div><p>İki Nobel Ödülü kazanan ilk insan. Radyoaktivite alanında çığır açan keşifleriyle bilim tarihini değiştirdi.</p></div>
-    <div class="woman-card"><div class="woman-avatar">✈️</div><h3>Sabiha Gökçen</h3><div class="woman-role">Pilot</div><p>Dünyanın ilk kadın savaş pilotu. Türk kadınının gücünü göklere taşıdı ve tüm dünyaya ilham verdi.</p></div>
-    <div class="woman-card"><div class="woman-avatar">🎨</div><h3>Frida Kahlo</h3><div class="woman-role">Sanatçı</div><p>Acılarını sanata dönüştüren Meksikalı ressam. Feminist ikonlar arasında yerini aldı, cesaretiyle ilham verdi.</p></div>
-    <div class="woman-card"><div class="woman-avatar">📖</div><h3>Halide Edib Adıvar</h3><div class="woman-role">Yazar & Aktivist</div><p>Türk edebiyatının öncü kadın yazarı. Kurtuluş Savaşı'nda aktif görev aldı, kadın haklarının savunucusu oldu.</p></div>
-    <div class="woman-card"><div class="woman-avatar">🔬</div><h3>Rosalind Franklin</h3><div class="woman-role">Biyofizikçi</div><p>DNA'nın çift sarmal yapısının keşfinde kritik rol oynadı. Bilime katkıları uzun süre göz ardı edilse de bugün tanınıyor.</p></div>
-    <div class="woman-card"><div class="woman-avatar">⚖️</div><h3>Ruth Bader Ginsburg</h3><div class="woman-role">Yargıç</div><p>ABD Yüksek Mahkemesi yargıcı. Toplumsal cinsiyet eşitliği için verdiği hukuki mücadeleyle tarihe geçti.</p></div>
-    <div class="woman-card"><div class="woman-avatar">🏥</div><h3>Florence Nightingale</h3><div class="woman-role">Hemşire</div><p>Modern hemşireliğin kurucusu. Kırım Savaşı'nda gösterdiği özverili hizmetle sağlık alanında devrim yarattı.</p></div>
-    <div class="woman-card"><div class="woman-avatar">🌍</div><h3>Malala Yousafzai</h3><div class="woman-role">Aktivist</div><p>Kız çocuklarının eğitim hakkı için Taliban'a karşı mücadele etti. En genç Nobel Barış Ödülü sahibi oldu.</p></div>
-  </div>
-</section>
-
-<div class="section-divider"><svg><use href="#icon-butterfly"/></svg></div>
 
 <!-- ŞİİRLER -->
 <section id="siir">
@@ -324,11 +308,28 @@ Her dokunuşunda hayat belirir.</div>
   </div>
 </section>
 
+<div class="section-divider"><svg><use href="#icon-butterfly"/></svg></div>
+
+<!-- İLHAM VEREN KADINLAR -->
+<section id="kadinlar">
+  <h2 class="section-title"><svg><use href="#icon-star"/></svg> İlham Veren Kadınlar <svg><use href="#icon-star"/></svg></h2>
+  <p class="section-subtitle">Tarihe iz bırakan güçlü kadınlar</p>
+  <div class="women-grid">
+    <div class="woman-card"><div class="woman-avatar">👩‍🔬</div><h3>Marie Curie</h3><div class="woman-role">Bilim İnsanı</div><p>İki Nobel Ödülü kazanan ilk insan. Radyoaktivite alanında çığır açan keşifleriyle bilim tarihini değiştirdi.</p></div>
+    <div class="woman-card"><div class="woman-avatar">✈️</div><h3>Sabiha Gökçen</h3><div class="woman-role">Pilot</div><p>Dünyanın ilk kadın savaş pilotu. Türk kadınının gücünü göklere taşıdı ve tüm dünyaya ilham verdi.</p></div>
+    <div class="woman-card"><div class="woman-avatar">🎨</div><h3>Frida Kahlo</h3><div class="woman-role">Sanatçı</div><p>Acılarını sanata dönüştüren Meksikalı ressam. Feminist ikonlar arasında yerini aldı, cesaretiyle ilham verdi.</p></div>
+    <div class="woman-card"><div class="woman-avatar">📖</div><h3>Halide Edib Adıvar</h3><div class="woman-role">Yazar & Aktivist</div><p>Türk edebiyatının öncü kadın yazarı. Kurtuluş Savaşı'nda aktif görev aldı, kadın haklarının savunucusu oldu.</p></div>
+    <div class="woman-card"><div class="woman-avatar">🔬</div><h3>Rosalind Franklin</h3><div class="woman-role">Biyofizikçi</div><p>DNA'nın çift sarmal yapısının keşfinde kritik rol oynadı. Bilime katkıları uzun süre göz ardı edilse de bugün tanınıyor.</p></div>
+    <div class="woman-card"><div class="woman-avatar">⚖️</div><h3>Ruth Bader Ginsburg</h3><div class="woman-role">Yargıç</div><p>ABD Yüksek Mahkemesi yargıcı. Toplumsal cinsiyet eşitliği için verdiği hukuki mücadeleyle tarihe geçti.</p></div>
+    <div class="woman-card"><div class="woman-avatar">🏥</div><h3>Florence Nightingale</h3><div class="woman-role">Hemşire</div><p>Modern hemşireliğin kurucusu. Kırım Savaşı'nda gösterdiği özverili hizmetle sağlık alanında devrim yarattı.</p></div>
+    <div class="woman-card"><div class="woman-avatar">🌍</div><h3>Malala Yousafzai</h3><div class="woman-role">Aktivist</div><p>Kız çocuklarının eğitim hakkı için Taliban'a karşı mücadele etti. En genç Nobel Barış Ödülü sahibi oldu.</p></div>
+  </div>
+</section>
+
 <div class="section-divider"><svg><use href="#icon-heart"/></svg></div>
 
 <footer>
   <div class="footer-icons"><svg><use href="#icon-flower"/></svg><svg><use href="#icon-heart-purple"/></svg><svg><use href="#icon-flower"/></svg></div>
-  <p class="footer-copy">© 2026 HerGün8Mart</p>
   <p>© 2026 HerGün8Mart | Tüm kadınların <span class="footer-heart">8 Mart Dünya Kadınlar Günü</span> kutlu olsun!</p>
   <p style="margin-top:.5rem;opacity:.4;font-size:.75rem">Sevgi, saygı ve eşitlikle 💜</p>
 </footer>
@@ -484,7 +485,7 @@ function quizRender(){
   document.getElementById('qProgressFill').style.width=((quizIdx+1)*10)+'%';
   document.getElementById('qScoreDisplay').textContent='✨ '+quizScore+' Puan';
   document.getElementById('qQuestion').textContent=q.q;
-  
+
   const optContainer=document.getElementById('qOptions');
   optContainer.innerHTML='';
   q.opts.forEach((opt,i)=>{
@@ -494,27 +495,27 @@ function quizRender(){
     div.addEventListener('click',()=>quizAnswer(i,div));
     optContainer.appendChild(div);
   });
-  
+
   const fb=document.getElementById('qFeedback');
   fb.className='quiz-feedback';
   fb.textContent='';
-  
+
   const nb=document.getElementById('qNextBtn');
   nb.classList.remove('visible');
-  
+
   quizAnswered=false;
 }
 
 function quizAnswer(idx,el){
   if(quizAnswered)return;
   quizAnswered=true;
-  
+
   const q=quizQuestions[quizIdx];
   const allOpts=document.querySelectorAll('#qOptions .quiz-option');
   allOpts.forEach(o=>o.classList.add('disabled'));
-  
+
   const fb=document.getElementById('qFeedback');
-  
+
   if(idx===q.correct){
     el.classList.add('correct');
     quizScore++;
@@ -527,7 +528,7 @@ function quizAnswer(idx,el){
     fb.className='quiz-feedback wrong-fb show';
     fb.textContent='❌ Yanlış! Doğru cevap: '+q.opts[q.correct]+'. '+q.info;
   }
-  
+
   const nb=document.getElementById('qNextBtn');
   if(quizIdx<9){
     nb.textContent='Sonraki Soru →';
@@ -550,9 +551,9 @@ function quizShowResult(){
   document.getElementById('quizBody').style.display='none';
   const r=document.getElementById('quizResult');
   r.classList.add('show');
-  
+
   document.getElementById('qResultScore').textContent=quizScore+' / 10';
-  
+
   let icon,title,msg;
   if(quizScore===10){
     icon='🏆';title='Mükemmel!';msg='Tüm soruları doğru bildin! Kadın tarihi konusunda gerçek bir uzmansın. Tebrikler!';
@@ -565,7 +566,7 @@ function quizShowResult(){
   }else{
     icon='💪';title='Pes Etme!';msg='Kadın tarihi keşfedilmeyi bekliyor! Tekrar dene ve daha çok öğren.';
   }
-  
+
   document.getElementById('qResultIcon').textContent=icon;
   document.getElementById('qResultTitle').textContent=title;
   document.getElementById('qResultMsg').textContent=msg;
