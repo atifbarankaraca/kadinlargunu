@@ -19,6 +19,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .particles {
   position: fixed;
   top: 0; left: 0;
@@ -30,9 +37,14 @@ html, body {
 
 .particle {
   position: absolute;
-  font-size: 1.5rem;
   animation: floatUp linear infinite;
   opacity: 0.6;
+}
+
+.particle svg {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 6px rgba(255,107,157,0.6));
 }
 
 @keyframes floatUp {
@@ -42,7 +54,6 @@ html, body {
   100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
 }
 
-/* Music Button */
 .music-btn {
   position: fixed;
   bottom: 1.5rem;
@@ -54,7 +65,6 @@ html, body {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  font-size: 1.5rem;
   cursor: pointer;
   backdrop-filter: blur(10px);
   transition: all 0.3s;
@@ -73,12 +83,16 @@ html, body {
   animation: musicPulse 1.5s ease-in-out infinite;
 }
 
+.music-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
 @keyframes musicPulse {
   0%, 100% { box-shadow: 0 0 10px rgba(255,107,157,0.3); }
   50% { box-shadow: 0 0 35px rgba(255,107,157,0.7); }
 }
 
-/* Autoplay Overlay */
 .autoplay-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -100,10 +114,14 @@ html, body {
 }
 
 .autoplay-overlay .play-icon {
-  font-size: 5rem;
   margin-bottom: 1.5rem;
   animation: pulse3D 2s ease-in-out infinite;
   filter: drop-shadow(0 0 30px rgba(255,107,157,0.6));
+}
+
+.autoplay-overlay .play-icon svg {
+  width: 90px;
+  height: 90px;
 }
 
 .autoplay-overlay p {
@@ -122,7 +140,6 @@ html, body {
   letter-spacing: 0.5px;
 }
 
-/* Hero */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -136,7 +153,9 @@ html, body {
 }
 
 .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   background: linear-gradient(135deg, rgba(255,107,157,0.3), rgba(199,97,255,0.3));
   border: 1px solid rgba(255,107,157,0.4);
   padding: 0.5rem 1.5rem;
@@ -147,6 +166,11 @@ html, body {
   margin-bottom: 1.5rem;
   backdrop-filter: blur(10px);
   animation: fadeInDown 1s ease;
+}
+
+.hero-badge svg {
+  width: 16px;
+  height: 16px;
 }
 
 .hero h1 {
@@ -181,11 +205,15 @@ html, body {
 }
 
 .hero-flower {
-  font-size: clamp(4rem, 10vw, 7rem);
   animation: pulse3D 3s ease-in-out infinite, fadeInUp 1s ease 0.2s both;
   filter: drop-shadow(0 0 30px rgba(255,107,157,0.5));
   cursor: pointer;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-flower svg {
+  width: clamp(80px, 12vw, 120px);
+  height: clamp(80px, 12vw, 120px);
 }
 
 .hero-flower:hover { transform: scale(1.2) rotateY(180deg); }
@@ -214,8 +242,12 @@ html, body {
   position: absolute;
   bottom: 2rem;
   animation: bounce 2s ease infinite;
-  font-size: 1.5rem;
   opacity: 0.6;
+}
+
+.scroll-indicator svg {
+  width: 28px;
+  height: 28px;
 }
 
 @keyframes bounce {
@@ -266,6 +298,16 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.section-title svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .section-subtitle {
@@ -275,7 +317,6 @@ section {
   margin-bottom: 3rem;
 }
 
-/* Cards */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -338,10 +379,14 @@ section {
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-.card-emoji {
-  font-size: 3.5rem;
+.card-icon {
   margin-bottom: 1rem;
   filter: drop-shadow(0 0 15px rgba(255,107,157,0.5));
+}
+
+.card-icon svg {
+  width: 56px;
+  height: 56px;
 }
 
 .card-front h3 {
@@ -370,7 +415,6 @@ section {
   font-size: 0.85rem;
 }
 
-/* Flip Hint */
 .flip-hint {
   margin-top: 1rem;
   display: flex;
@@ -392,8 +436,9 @@ section {
   box-shadow: 0 5px 20px rgba(255,107,157,0.3);
 }
 
-.flip-hint .hint-icon {
-  font-size: 1.2rem;
+.flip-hint svg {
+  width: 18px;
+  height: 18px;
   animation: hintRotate 2s ease-in-out infinite;
 }
 
@@ -414,7 +459,6 @@ section {
   50% { transform: rotateY(180deg); }
 }
 
-/* Quotes */
 .quotes-section {
   background: linear-gradient(180deg, transparent, rgba(255,107,157,0.05), transparent);
 }
@@ -459,10 +503,17 @@ section {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s;
   backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-nav button svg {
+  width: 18px;
+  height: 18px;
 }
 
 .quote-nav button:hover {
@@ -470,7 +521,6 @@ section {
   transform: scale(1.1);
 }
 
-/* Rose Overlay */
 .rose-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -484,9 +534,13 @@ section {
 
 .falling-rose {
   position: absolute;
-  font-size: 2rem;
   animation: fallDown linear forwards;
   pointer-events: none;
+}
+
+.falling-rose svg {
+  width: 32px;
+  height: 32px;
 }
 
 @keyframes fallDown {
@@ -495,7 +549,6 @@ section {
   100% { transform: translateY(105vh) rotate(720deg) scale(0.5); opacity: 0; }
 }
 
-/* Footer */
 footer {
   position: relative;
   z-index: 1;
@@ -504,7 +557,19 @@ footer {
   background: linear-gradient(180deg, transparent, rgba(255,107,157,0.05));
 }
 
-footer .footer-emoji { font-size: 2rem; margin-bottom: 1rem; }
+.footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.footer-icons svg {
+  width: 28px;
+  height: 28px;
+}
+
 footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 footer .footer-heart { color: #ff6b9d; }
 
@@ -516,11 +581,120 @@ footer .footer-heart { color: #ff6b9d; }
 </head>
 <body>
 
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="icon-rose" viewBox="0 0 64 64">
+      <path d="M32 8c-4 0-8 4-10 8-2-2-6-4-10-2 0 6 4 10 8 12-4 2-8 8-6 14 4 4 10 2 14-2 0 6 2 12 4 18 2-6 4-12 4-18 4 4 10 6 14 2 2-6-2-12-6-14 4-2 8-6 8-12-4-2-8 0-10 2C40 12 36 8 32 8z" fill="url(#roseGrad)" stroke="#ff4081" stroke-width="1"/>
+      <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ff6b9d"/>
+        <stop offset="100%" style="stop-color:#e91e63"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 64 64">
+      <path d="M32 56S8 40 8 22c0-8 6-14 14-14 5 0 8 3 10 6 2-3 5-6 10-6 8 0 14 6 14 14C56 40 32 56 32 56z" fill="url(#heartGrad)"/>
+      <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ff6b9d"/>
+        <stop offset="50%" style="stop-color:#e91e63"/>
+        <stop offset="100%" style="stop-color:#c2185b"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 64 64">
+      <path d="M32 4l4 20 20 4-20 4-4 20-4-20L8 28l20-4z" fill="url(#sparkleGrad)"/>
+      <path d="M18 10l2 8 8 2-8 2-2 8-2-8-8-2 8-2z" fill="url(#sparkleGrad2)" opacity="0.7"/>
+      <path d="M48 42l2 8 8 2-8 2-2 8-2-8-8-2 8-2z" fill="url(#sparkleGrad2)" opacity="0.7"/>
+      <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ffd54f"/>
+        <stop offset="100%" style="stop-color:#ffab40"/>
+      </linearGradient>
+      <linearGradient id="sparkleGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#fff176"/>
+        <stop offset="100%" style="stop-color:#ffd54f"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-tulip" viewBox="0 0 64 64">
+      <path d="M32 6c-6 0-12 8-12 18 0 6 4 10 8 12v20h8V36c4-2 8-6 8-12C44 14 38 6 32 6z" fill="url(#tulipGrad)"/>
+      <path d="M28 36v20h8V36" fill="#4caf50" opacity="0.8"/>
+      <path d="M22 44c-6-2-10 0-12 4 4 2 8 2 12 0" fill="#66bb6a" opacity="0.6"/>
+      <path d="M42 44c6-2 10 0 12 4-4 2-8 2-12 0" fill="#66bb6a" opacity="0.6"/>
+      <linearGradient id="tulipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#f48fb1"/>
+        <stop offset="100%" style="stop-color:#e91e63"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-butterfly" viewBox="0 0 64 64">
+      <path d="M28 20c-8-10-22-8-22 4 0 8 8 14 18 12" fill="url(#buttGrad1)" opacity="0.9"/>
+      <path d="M36 20c8-10 22-8 22 4 0 8-8 14-18 12" fill="url(#buttGrad2)" opacity="0.9"/>
+      <path d="M24 34c-6 4-14 12-8 18 4 2 10-2 14-10" fill="url(#buttGrad1)" opacity="0.7"/>
+      <path d="M40 34c6 4 14 12 8 18-4 2-10-2-14-10" fill="url(#buttGrad2)" opacity="0.7"/>
+      <ellipse cx="32" cy="32" rx="2" ry="14" fill="#4a1942"/>
+      <linearGradient id="buttGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ce93d8"/>
+        <stop offset="100%" style="stop-color:#ab47bc"/>
+      </linearGradient>
+      <linearGradient id="buttGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#f48fb1"/>
+        <stop offset="100%" style="stop-color:#e91e63"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-flower" viewBox="0 0 64 64">
+      <circle cx="32" cy="16" r="10" fill="#f48fb1" opacity="0.8"/>
+      <circle cx="18" cy="26" r="10" fill="#ce93d8" opacity="0.8"/>
+      <circle cx="46" cy="26" r="10" fill="#ef9a9a" opacity="0.8"/>
+      <circle cx="22" cy="40" r="10" fill="#f48fb1" opacity="0.8"/>
+      <circle cx="42" cy="40" r="10" fill="#ce93d8" opacity="0.8"/>
+      <circle cx="32" cy="30" r="8" fill="#ffd54f"/>
+    </symbol>
+    <symbol id="icon-envelope" viewBox="0 0 64 64">
+      <rect x="6" y="14" width="52" height="36" rx="4" fill="url(#envGrad)" opacity="0.9"/>
+      <path d="M6 14l26 20 26-20" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
+      <path d="M6 50l20-16" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+      <path d="M58 50l-20-16" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+      <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#f48fb1"/>
+        <stop offset="100%" style="stop-color:#c2185b"/>
+      </linearGradient>
+    </symbol>
+    <symbol id="icon-flip" viewBox="0 0 64 64">
+      <path d="M32 10c12 0 22 10 22 22h-8l12 14 12-14h-8C62 16 48 2 32 2" fill="none" stroke="#ffd1e8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M32 54c-12 0-22-10-22-22h8L6 18-6 32h8c0 16 14 30 30 30" fill="none" stroke="#ffd1e8" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 64 64">
+      <path d="M40 12L20 32l20 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 64 64">
+      <path d="M24 12l20 20-20 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 64 64">
+      <path d="M12 24l20 20 20-20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-music" viewBox="0 0 64 64">
+      <path d="M24 52V18l28-8v34" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="18" cy="52" rx="8" ry="6" fill="#fff"/>
+      <ellipse cx="46" cy="44" rx="8" ry="6" fill="#fff"/>
+    </symbol>
+    <symbol id="icon-music-off" viewBox="0 0 64 64">
+      <path d="M24 52V18l28-8v34" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+      <ellipse cx="18" cy="52" rx="8" ry="6" fill="#fff" opacity="0.4"/>
+      <ellipse cx="46" cy="44" rx="8" ry="6" fill="#fff" opacity="0.4"/>
+      <line x1="8" y1="8" x2="56" y2="56" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-heart-purple" viewBox="0 0 64 64">
+      <path d="M32 56S8 40 8 22c0-8 6-14 14-14 5 0 8 3 10 6 2-3 5-6 10-6 8 0 14 6 14 14C56 40 32 56 32 56z" fill="url(#heartPurpGrad)"/>
+      <linearGradient id="heartPurpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ce93d8"/>
+        <stop offset="100%" style="stop-color:#7b1fa2"/>
+      </linearGradient>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- Autoplay Overlay -->
 <div class="autoplay-overlay" id="autoplayOverlay" onclick="startExperience()">
-  <div class="play-icon">🌹</div>
+  <div class="play-icon">
+    <svg><use href="#icon-flower"/></svg>
+  </div>
   <p>8 Mart Dünya Kadınlar Günü</p>
-  <p class="sub-text">Siteyi görüntülemek için dokunun ✨</p>
+  <p class="sub-text">Siteyi görüntülemek için dokunun</p>
 </div>
 
 <!-- Audio -->
@@ -529,14 +703,22 @@ footer .footer-heart { color: #ff6b9d; }
 </audio>
 
 <!-- Music Toggle Button -->
-<button class="music-btn playing" id="musicBtn" onclick="toggleMusic()">🎵</button>
+<button class="music-btn playing" id="musicBtn" onclick="toggleMusic()">
+  <svg><use href="#icon-music"/></svg>
+</button>
 
 <div class="particles" id="particles"></div>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">✨ 8 Mart 2026 ✨</div>
-  <div class="hero-flower" id="heroFlower">🌹</div>
+  <div class="hero-badge">
+    <svg><use href="#icon-sparkle"/></svg>
+    8 Mart 2026
+    <svg><use href="#icon-sparkle"/></svg>
+  </div>
+  <div class="hero-flower" id="heroFlower">
+    <svg><use href="#icon-flower"/></svg>
+  </div>
   <h1>Dünya Kadınlar Günün</h1>
   <p class="date-text">Kutlu Olsun</p>
   <p>Dünyayı güzelleştiren, hayata anlam katan, sevgiyi ve gücü bir arada taşıyan tüm kadınlarımızın Kadınlar Günü kutlu olsun.</p>
@@ -554,19 +736,27 @@ footer .footer-heart { color: #ff6b9d; }
       <div class="ticker-label">Gün Her Gün Yanınızdayız</div>
     </div>
   </div>
-  <div class="scroll-indicator">↓</div>
+  <div class="scroll-indicator">
+    <svg><use href="#icon-chevron-down"/></svg>
+  </div>
 </section>
 
 <!-- Kartpostallar -->
 <section>
-  <h2 class="section-title">💌 Kartpostallar</h2>
+  <h2 class="section-title">
+    <svg><use href="#icon-envelope"/></svg>
+    Kartpostallar
+    <svg><use href="#icon-envelope"/></svg>
+  </h2>
   <p class="section-subtitle">Kartlara dokunarak çevirebilirsiniz</p>
   <div class="cards-grid">
     <div class="card-wrapper">
       <div class="card-3d" id="card1" onclick="flipCard('card1')">
         <div class="card-inner">
           <div class="card-front">
-            <div class="card-emoji">🌷</div>
+            <div class="card-icon">
+              <svg><use href="#icon-tulip"/></svg>
+            </div>
             <h3>Güç Seninle</h3>
             <p>Her kadın bir çiçek gibi güzeldir, ama aynı zamanda bir fırtına kadar güçlüdür.</p>
           </div>
@@ -578,7 +768,7 @@ footer .footer-heart { color: #ff6b9d; }
         </div>
       </div>
       <div class="flip-hint" onclick="flipCard('card1')">
-        <span class="hint-icon">🔄</span>
+        <svg><use href="#icon-flip"/></svg>
         <span class="hint-text">Çevirmek için dokun</span>
       </div>
     </div>
@@ -586,7 +776,9 @@ footer .footer-heart { color: #ff6b9d; }
       <div class="card-3d" id="card2" onclick="flipCard('card2')">
         <div class="card-inner">
           <div class="card-front">
-            <div class="card-emoji">🦋</div>
+            <div class="card-icon">
+              <svg><use href="#icon-butterfly"/></svg>
+            </div>
             <h3>Özgürlük</h3>
             <p>Kanatlarını açmaktan asla vazgeçme, gökyüzü sana ait.</p>
           </div>
@@ -598,7 +790,7 @@ footer .footer-heart { color: #ff6b9d; }
         </div>
       </div>
       <div class="flip-hint" onclick="flipCard('card2')">
-        <span class="hint-icon">🔄</span>
+        <svg><use href="#icon-flip"/></svg>
         <span class="hint-text">Çevirmek için dokun</span>
       </div>
     </div>
@@ -607,29 +799,40 @@ footer .footer-heart { color: #ff6b9d; }
 
 <!-- Sözler -->
 <section class="quotes-section">
-  <h2 class="section-title">✨ İlham Veren Sözler</h2>
+  <h2 class="section-title">
+    <svg><use href="#icon-sparkle"/></svg>
+    İlham Veren Sözler
+    <svg><use href="#icon-sparkle"/></svg>
+  </h2>
   <p class="section-subtitle">Güçlü kadınlardan güçlü sözler</p>
   <div class="quote-carousel">
     <div class="quote-text" id="quoteText">"Bir kadın deniz gibidir; sakin görünür ama derinliklerinde fırtınalar saklıdır."</div>
     <div class="quote-author" id="quoteAuthor">— Türk Atasözü</div>
     <div class="quote-nav">
-      <button onclick="prevQuote()">◀</button>
-      <button onclick="nextQuote()">▶</button>
+      <button onclick="prevQuote()">
+        <svg><use href="#icon-chevron-left"/></svg>
+      </button>
+      <button onclick="nextQuote()">
+        <svg><use href="#icon-chevron-right"/></svg>
+      </button>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-emoji">🌹💜🌷</div>
+  <div class="footer-icons">
+    <svg><use href="#icon-flower"/></svg>
+    <svg><use href="#icon-heart-purple"/></svg>
+    <svg><use href="#icon-flower"/></svg>
+  </div>
   <p>Tüm kadınların <span class="footer-heart">8 Mart Dünya Kadınlar Günü</span> kutlu olsun!</p>
-  <p style="margin-top:0.5rem; opacity:0.4; font-size:0.75rem;">Sevgi, saygı ve eşitlikle 💜</p>
+  <p style="margin-top:0.5rem; opacity:0.4; font-size:0.75rem;">Sevgi, saygı ve eşitlikle</p>
 </footer>
 
 <div class="rose-overlay" id="roseOverlay"></div>
 
 <script>
-// Music
 const bgMusic = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 let isMusicPlaying = false;
@@ -643,11 +846,11 @@ function startExperience() {
   bgMusic.play().then(() => {
     isMusicPlaying = true;
     musicBtn.classList.add('playing');
-    musicBtn.textContent = '🎵';
+    musicBtn.innerHTML = '<svg><use href="#icon-music"/></svg>';
   }).catch(() => {
     isMusicPlaying = false;
     musicBtn.classList.remove('playing');
-    musicBtn.textContent = '🔇';
+    musicBtn.innerHTML = '<svg><use href="#icon-music-off"/></svg>';
   });
 
   showFallingRoses();
@@ -658,25 +861,26 @@ function toggleMusic() {
     bgMusic.pause();
     isMusicPlaying = false;
     musicBtn.classList.remove('playing');
-    musicBtn.textContent = '🔇';
+    musicBtn.innerHTML = '<svg><use href="#icon-music-off"/></svg>';
   } else {
     bgMusic.play();
     isMusicPlaying = true;
     musicBtn.classList.add('playing');
-    musicBtn.textContent = '🎵';
+    musicBtn.innerHTML = '<svg><use href="#icon-music"/></svg>';
   }
 }
 
 // Particles
 const particlesEl = document.getElementById('particles');
-const emojis = ['🌸','🌹','💐','🌷','💜','✨','🦋','🌺','💗','⭐'];
+const particleIcons = ['icon-rose', 'icon-heart', 'icon-sparkle', 'icon-tulip', 'icon-heart-purple', 'icon-flower', 'icon-butterfly'];
 
 function createParticle() {
   const p = document.createElement('div');
   p.className = 'particle';
-  p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  const icon = particleIcons[Math.floor(Math.random() * particleIcons.length)];
+  const size = Math.random() * 18 + 20;
+  p.innerHTML = `<svg style="width:${size}px;height:${size}px"><use href="#${icon}"/></svg>`;
   p.style.left = Math.random() * 100 + '%';
-  p.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
   p.style.animationDuration = (Math.random() * 10 + 8) + 's';
   p.style.animationDelay = (Math.random() * 5) + 's';
   particlesEl.appendChild(p);
@@ -720,19 +924,20 @@ function nextQuote() { currentQuote = (currentQuote + 1) % quotes.length; showQu
 function prevQuote() { currentQuote = (currentQuote - 1 + quotes.length) % quotes.length; showQuote(currentQuote); }
 setInterval(nextQuote, 6000);
 
-// Falling Roses
+// Falling icons
 function showFallingRoses() {
   const overlay = document.getElementById('roseOverlay');
   overlay.classList.add('active');
-  const re = ['🌹','🌸','🌷','💐','🌺','💜','✨','💗'];
+  const fallingIcons = ['icon-rose', 'icon-heart', 'icon-tulip', 'icon-flower', 'icon-sparkle', 'icon-heart-purple', 'icon-butterfly'];
   for (let i = 0; i < 40; i++) {
     setTimeout(() => {
       const r = document.createElement('div');
       r.className = 'falling-rose';
-      r.textContent = re[Math.floor(Math.random() * re.length)];
+      const icon = fallingIcons[Math.floor(Math.random() * fallingIcons.length)];
+      const size = Math.random() * 16 + 24;
+      r.innerHTML = `<svg style="width:${size}px;height:${size}px"><use href="#${icon}"/></svg>`;
       r.style.left = Math.random() * 100 + '%';
       r.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      r.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
       overlay.appendChild(r);
       setTimeout(() => r.remove(), 5000);
     }, i * 80);
@@ -740,10 +945,9 @@ function showFallingRoses() {
   setTimeout(() => { overlay.classList.remove('active'); overlay.innerHTML = ''; }, 6000);
 }
 
+// Hero flower click
 document.getElementById('heroFlower').addEventListener('click', function() {
   showFallingRoses();
-  const f = ['🌹','🌸','🌷','🌺','💐','🌻'];
-  this.textContent = f[Math.floor(Math.random() * f.length)];
 });
 
 // Scroll animations
