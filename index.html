@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Mart Dünya Kadınlar Günü 💐</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #4a1942 60%, #1a0a2e 100%);
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+.particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
+}
+
+/* Music Button */
+.music-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 500;
+  background: linear-gradient(135deg, rgba(255,107,157,0.4), rgba(199,97,255,0.4));
+  border: 1px solid rgba(255,107,157,0.4);
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 30px rgba(255,107,157,0.5);
+}
+
+.music-btn.playing {
+  animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,107,157,0.3); }
+  50% { box-shadow: 0 0 35px rgba(255,107,157,0.7); }
+}
+
+/* Autoplay Overlay */
+.autoplay-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.autoplay-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.autoplay-overlay .play-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: pulse3D 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255,107,157,0.6));
+}
+
+.autoplay-overlay p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #ffd1e8;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.autoplay-overlay .sub-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.5rem;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(255,107,157,0.3), rgba(199,97,255,0.3));
+  border: 1px solid rgba(255,107,157,0.4);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  animation: fadeInDown 1s ease;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #c767ff, #ff6b9d);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite, fadeInUp 1s ease 0.3s both;
+}
+
+.hero .date-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: #e8a0bf;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+
+.hero > p {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  max-width: 600px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease 0.7s both;
+}
+
+.hero-flower {
+  font-size: clamp(4rem, 10vw, 7rem);
+  animation: pulse3D 3s ease-in-out infinite, fadeInUp 1s ease 0.2s both;
+  filter: drop-shadow(0 0 30px rgba(255,107,157,0.5));
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-flower:hover { transform: scale(1.2) rotateY(180deg); }
+
+@keyframes pulse3D {
+  0%, 100% { transform: perspective(500px) rotateY(0deg) scale(1); }
+  50% { transform: perspective(500px) rotateY(15deg) scale(1.05); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  animation: bounce 2s ease infinite;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.ticker {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.ticker-item { text-align: center; }
+
+.ticker-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #c767ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.ticker-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 1.5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #ffd1e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
+}
+
+/* Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-3d {
+  position: relative;
+  perspective: 1000px;
+  min-height: 350px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.card-3d.flipped .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-front {
+  background: linear-gradient(145deg, rgba(255,107,157,0.15), rgba(199,97,255,0.15));
+  border: 1px solid rgba(255,107,157,0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.card-back {
+  background: linear-gradient(145deg, rgba(199,97,255,0.25), rgba(255,107,157,0.25));
+  border: 1px solid rgba(199,97,255,0.3);
+  backdrop-filter: blur(20px);
+  transform: rotateY(180deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.card-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(255,107,157,0.5));
+}
+
+.card-front h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #ffd1e8;
+}
+
+.card-front p, .card-back p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.card-back .quote-mark {
+  font-size: 2.5rem;
+  color: rgba(255,107,157,0.5);
+  font-family: 'Playfair Display', serif;
+}
+
+.card-back .author {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #e8a0bf;
+  font-size: 0.85rem;
+}
+
+/* Flip Hint */
+.flip-hint {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(255,107,157,0.25), rgba(199,97,255,0.25));
+  border: 1px solid rgba(255,107,157,0.35);
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+.flip-hint:hover {
+  background: linear-gradient(135deg, rgba(255,107,157,0.45), rgba(199,97,255,0.45));
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+}
+
+.flip-hint .hint-icon {
+  font-size: 1.2rem;
+  animation: hintRotate 2s ease-in-out infinite;
+}
+
+.flip-hint .hint-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffd1e8;
+  letter-spacing: 0.5px;
+}
+
+@keyframes hintPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,107,157,0.2); }
+  50% { box-shadow: 0 0 20px rgba(255,107,157,0.45); }
+}
+
+@keyframes hintRotate {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+}
+
+/* Quotes */
+.quotes-section {
+  background: linear-gradient(180deg, transparent, rgba(255,107,157,0.05), transparent);
+}
+
+.quote-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: #ffd1e8;
+  margin-bottom: 1rem;
+  transition: opacity 0.5s ease;
+}
+
+.quote-author {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  transition: opacity 0.5s ease;
+}
+
+.quote-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.quote-nav button {
+  background: linear-gradient(135deg, rgba(255,107,157,0.3), rgba(199,97,255,0.3));
+  border: 1px solid rgba(255,107,157,0.3);
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.quote-nav button:hover {
+  background: linear-gradient(135deg, rgba(255,107,157,0.6), rgba(199,97,255,0.6));
+  transform: scale(1.1);
+}
+
+/* Rose Overlay */
+.rose-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1000;
+  pointer-events: none;
+  display: none;
+}
+
+.rose-overlay.active { display: block; }
+
+.falling-rose {
+  position: absolute;
+  font-size: 2rem;
+  animation: fallDown linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fallDown {
+  0% { transform: translateY(-50px) rotate(0deg) scale(0); opacity: 1; }
+  20% { transform: translateY(15vh) rotate(90deg) scale(1.2); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg) scale(0.5); opacity: 0; }
+}
+
+/* Footer */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, transparent, rgba(255,107,157,0.05));
+}
+
+footer .footer-emoji { font-size: 2rem; margin-bottom: 1rem; }
+footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+footer .footer-heart { color: #ff6b9d; }
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Autoplay Overlay -->
+<div class="autoplay-overlay" id="autoplayOverlay" onclick="startExperience()">
+  <div class="play-icon">🌹</div>
+  <p>8 Mart Dünya Kadınlar Günü</p>
+  <p class="sub-text">Deneyimi başlatmak için dokunun ✨</p>
+</div>
+
+<!-- Audio -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="müzik.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music Toggle Button -->
+<button class="music-btn playing" id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+<div class="particles" id="particles"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">✨ 8 Mart 2026 ✨</div>
+  <div class="hero-flower" id="heroFlower">🌹</div>
+  <h1>Dünya Kadınlar Günü</h1>
+  <p class="date-text">Kutlu Olsun</p>
+  <p>Dünyayı güzelleştiren, hayata anlam katan, sevgiyi ve gücü bir arada taşıyan tüm kadınlarımızın Kadınlar Günü kutlu olsun.</p>
+  <div class="ticker">
+    <div class="ticker-item">
+      <div class="ticker-num">3.9B+</div>
+      <div class="ticker-label">Dünyada Kadın Sayısı</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">∞</div>
+      <div class="ticker-label">Güç & Sevgi</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">365</div>
+      <div class="ticker-label">Gün Her Gün Yanınızdayız</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">↓</div>
+</section>
+
+<!-- Kartpostallar -->
+<section>
+  <h2 class="section-title">💌 Kartpostallar</h2>
+  <p class="section-subtitle">Kartlara dokunarak çevirebilirsiniz</p>
+  <div class="cards-grid">
+    <div class="card-wrapper">
+      <div class="card-3d" id="card1" onclick="flipCard('card1')">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-emoji">🌷</div>
+            <h3>Güç Seninle</h3>
+            <p>Her kadın bir çiçek gibi güzeldir, ama aynı zamanda bir fırtına kadar güçlüdür.</p>
+          </div>
+          <div class="card-back">
+            <div class="quote-mark">"</div>
+            <p>Kadın olmak, hem nazik hem güçlü olmayı bilmektir. Bu dengeyi kuran herkese selam olsun.</p>
+            <div class="author">— Anonim</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-hint" onclick="flipCard('card1')">
+        <span class="hint-icon">🔄</span>
+        <span class="hint-text">Çevirmek için dokun</span>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card-3d" id="card2" onclick="flipCard('card2')">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-emoji">🦋</div>
+            <h3>Özgürlük</h3>
+            <p>Kanatlarını açmaktan asla vazgeçme, gökyüzü sana ait.</p>
+          </div>
+          <div class="card-back">
+            <div class="quote-mark">"</div>
+            <p>Bir kadını eğitmek, bir toplumu eğitmektir. Eğitimli kadınlar dünyayı değiştirir.</p>
+            <div class="author">— Afrika Atasözü</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-hint" onclick="flipCard('card2')">
+        <span class="hint-icon">🔄</span>
+        <span class="hint-text">Çevirmek için dokun</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sözler -->
+<section class="quotes-section">
+  <h2 class="section-title">✨ İlham Veren Sözler</h2>
+  <p class="section-subtitle">Güçlü kadınlardan güçlü sözler</p>
+  <div class="quote-carousel">
+    <div class="quote-text" id="quoteText">"Bir kadın deniz gibidir; sakin görünür ama derinliklerinde fırtınalar saklıdır."</div>
+    <div class="quote-author" id="quoteAuthor">— Türk Atasözü</div>
+    <div class="quote-nav">
+      <button onclick="prevQuote()">◀</button>
+      <button onclick="nextQuote()">▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-emoji">🌹💜🌷</div>
+  <p>Tüm kadınların <span class="footer-heart">8 Mart Dünya Kadınlar Günü</span> kutlu olsun!</p>
+  <p style="margin-top:0.5rem; opacity:0.4; font-size:0.75rem;">Sevgi, saygı ve eşitlikle 💜</p>
+</footer>
+
+<div class="rose-overlay" id="roseOverlay"></div>
+
+<script>
+// Music
+const bgMusic = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+let isMusicPlaying = false;
+
+function startExperience() {
+  const overlay = document.getElementById('autoplayOverlay');
+  overlay.classList.add('hidden');
+  setTimeout(() => overlay.style.display = 'none', 500);
+
+  bgMusic.volume = 0.5;
+  bgMusic.play().then(() => {
+    isMusicPlaying = true;
+    musicBtn.classList.add('playing');
+    musicBtn.textContent = '🎵';
+  }).catch(() => {
+    isMusicPlaying = false;
+    musicBtn.classList.remove('playing');
+    musicBtn.textContent = '🔇';
+  });
+
+  showFallingRoses();
+}
+
+function toggleMusic() {
+  if (isMusicPlaying) {
+    bgMusic.pause();
+    isMusicPlaying = false;
+    musicBtn.classList.remove('playing');
+    musicBtn.textContent = '🔇';
+  } else {
+    bgMusic.play();
+    isMusicPlaying = true;
+    musicBtn.classList.add('playing');
+    musicBtn.textContent = '🎵';
+  }
+}
+
+// Particles
+const particlesEl = document.getElementById('particles');
+const emojis = ['🌸','🌹','💐','🌷','💜','✨','🦋','🌺','💗','⭐'];
+
+function createParticle() {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  p.style.left = Math.random() * 100 + '%';
+  p.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+  p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+  p.style.animationDelay = (Math.random() * 5) + 's';
+  particlesEl.appendChild(p);
+  setTimeout(() => p.remove(), 20000);
+}
+
+for (let i = 0; i < 15; i++) setTimeout(createParticle, i * 400);
+setInterval(createParticle, 1500);
+
+// Card Flip
+function flipCard(id) {
+  document.getElementById(id).classList.toggle('flipped');
+}
+
+// Quotes
+const quotes = [
+  { text: '"Bir kadın deniz gibidir; sakin görünür ama derinliklerinde fırtınalar saklıdır."', author: '— Türk Atasözü' },
+  { text: '"Kadın, dünyanın en güçlü varlığıdır. Acı çeker ama yine de sever."', author: '— Anonim' },
+  { text: '"Dünyayı yöneten el, beşik sallayan eldir."', author: '— Napoleon Bonaparte' },
+  { text: '"Kadınlar bu dünyada var olan en büyük kullanılmamış yetenektir."', author: '— Hillary Clinton' },
+  { text: '"Bir kadını güçlü yapan şey, gözyaşlarının arkasındaki gülümsemesidir."', author: '— Anonim' },
+  { text: '"Kadın hakları için mücadele etmek, insanlık için mücadele etmektir."', author: '— Anonim' },
+  { text: '"Arkamda durmana gerek yok, yanımda dur yeter."', author: '— Anonim' },
+  { text: '"Eğitimli bir kadın, eğitimli bir nesil demektir."', author: '— Brigham Young' },
+];
+
+let currentQuote = 0;
+
+function showQuote(index) {
+  const t = document.getElementById('quoteText');
+  const a = document.getElementById('quoteAuthor');
+  t.style.opacity = 0; a.style.opacity = 0;
+  setTimeout(() => {
+    t.textContent = quotes[index].text;
+    a.textContent = quotes[index].author;
+    t.style.opacity = 1; a.style.opacity = 1;
+  }, 300);
+}
+
+function nextQuote() { currentQuote = (currentQuote + 1) % quotes.length; showQuote(currentQuote); }
+function prevQuote() { currentQuote = (currentQuote - 1 + quotes.length) % quotes.length; showQuote(currentQuote); }
+setInterval(nextQuote, 6000);
+
+// Falling Roses
+function showFallingRoses() {
+  const overlay = document.getElementById('roseOverlay');
+  overlay.classList.add('active');
+  const re = ['🌹','🌸','🌷','💐','🌺','💜','✨','💗'];
+  for (let i = 0; i < 40; i++) {
+    setTimeout(() => {
+      const r = document.createElement('div');
+      r.className = 'falling-rose';
+      r.textContent = re[Math.floor(Math.random() * re.length)];
+      r.style.left = Math.random() * 100 + '%';
+      r.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      r.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      overlay.appendChild(r);
+      setTimeout(() => r.remove(), 5000);
+    }, i * 80);
+  }
+  setTimeout(() => { overlay.classList.remove('active'); overlay.innerHTML = ''; }, 6000);
+}
+
+document.getElementById('heroFlower').addEventListener('click', function() {
+  showFallingRoses();
+  const f = ['🌹','🌸','🌷','🌺','💐','🌻'];
+  this.textContent = f[Math.floor(Math.random() * f.length)];
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card-wrapper').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'all 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
