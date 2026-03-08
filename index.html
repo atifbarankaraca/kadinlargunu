@@ -23,12 +23,18 @@ body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Poppins',sans-se
 .music-btn svg{width:24px;height:24px}
 @keyframes musicPulse{0%,100%{box-shadow:0 0 10px rgba(255,107,157,.3)}50%{box-shadow:0 0 35px rgba(255,107,157,.7)}}
 
-.autoplay-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:opacity .5s}
+.autoplay-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
 .autoplay-overlay.hidden{opacity:0;pointer-events:none}
 .autoplay-overlay .play-icon{margin-bottom:1.5rem;animation:pulse3D 2s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(255,107,157,.6))}
 .autoplay-overlay .play-icon svg{width:90px;height:90px}
-.autoplay-overlay p{font-family:'Playfair Display',serif;font-size:1.4rem;color:#ffd1e8;text-align:center}
-.autoplay-overlay .sub-text{font-family:'Poppins',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.7);margin-top:.75rem}
+.autoplay-overlay p.overlay-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3.5vw,1.8rem);color:#ffd1e8;text-align:center;margin-bottom:.5rem}
+.autoplay-overlay .sub-text{font-family:'Poppins',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.6);margin-bottom:2rem;text-align:center}
+.overlay-btn{background:linear-gradient(135deg,#ff6b9d,#c767ff);color:#fff;border:none;padding:.9rem 2.8rem;border-radius:50px;font-family:'Poppins',sans-serif;font-size:1.05rem;font-weight:600;cursor:pointer;letter-spacing:1px;box-shadow:0 6px 25px rgba(255,107,157,.5);transition:all .3s;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
+.overlay-btn::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,.15),transparent);transform:rotate(45deg);animation:btnShine 3s ease-in-out infinite}
+@keyframes btnShine{0%,100%{transform:translateX(-100%) rotate(45deg)}50%{transform:translateX(100%) rotate(45deg)}}
+.overlay-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 35px rgba(255,107,157,.6)}
+.overlay-btn:active{transform:translateY(0) scale(.98)}
+.overlay-btn svg{width:20px;height:20px}
 
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 2rem;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,rgba(255,107,157,.3),rgba(199,97,255,.3));border:1px solid rgba(255,107,157,.4);padding:.5rem 1.5rem;border-radius:50px;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;backdrop-filter:blur(10px);animation:fadeInDown 1s ease}
@@ -146,13 +152,18 @@ footer .footer-heart{color:#ff6b9d}
   <symbol id="icon-clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#ff6b9d" stroke-width="3"/><path d="M32 16v18l12 8" fill="none" stroke="#ffd1e8" stroke-width="3" stroke-linecap="round"/></symbol>
   <symbol id="icon-star" viewBox="0 0 64 64"><path d="M32 4l8 20h20l-16 12 6 20-18-12-18 12 6-20L4 24h20z" fill="url(#starGrad)"/><linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd54f"/><stop offset="100%" style="stop-color:#ff6b9d"/></linearGradient></symbol>
   <symbol id="icon-book" viewBox="0 0 64 64"><path d="M8 10h20c4 0 4 2 4 4v38c0-2-2-4-6-4H8V10z" fill="rgba(206,147,216,.5)" stroke="#ce93d8" stroke-width="2"/><path d="M56 10H36c-4 0-4 2-4 4v38c0-2 2-4 6-4h18V10z" fill="rgba(244,143,177,.5)" stroke="#f48fb1" stroke-width="2"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#fff" stroke-width="2.5" opacity=".6"/><path d="M26 18l20 14-20 14z" fill="#fff"/></symbol>
 </defs>
 </svg>
 
-<div class="autoplay-overlay" id="autoplayOverlay" onclick="startExperience()">
+<div class="autoplay-overlay" id="autoplayOverlay">
   <div class="play-icon"><svg><use href="#icon-flower"/></svg></div>
-  <p>8 Mart Dünya Kadınlar Günü</p>
-  <p class="sub-text">Deneyimi başlatmak için dokunun</p>
+  <p class="overlay-title">8 Mart Dünya Kadınlar Günü</p>
+  <p class="sub-text">Sevgi, saygı ve eşitlikle 💜</p>
+  <button class="overlay-btn" onclick="startExperience()">
+    <svg><use href="#icon-play"/></svg>
+    Tıklayınız
+  </button>
 </div>
 
 <audio id="bgMusic" loop preload="auto"><source src="muzik.mp3" type="audio/mpeg"></audio>
@@ -295,20 +306,10 @@ function createParticle(){
 for(let i=0;i<15;i++)setTimeout(createParticle,i*400);
 setInterval(createParticle,1500);
 
-/*
-  GERİ SAYIM
-  - Her zaman bir SONRAKİ 8 Mart'a sayar
-  - Bugün 8 Mart olsa bile gelecek yılın 8 Mart'ını hedefler
-  - Cihazın yerel saatini kullanır
-  - Her saniye güncellenir
-*/
 function getNextMarch8(){
   var now=new Date();
   var year=now.getFullYear();
-  // Gelecek 8 Mart'ı bul - bugün 8 Mart dahil her zaman sonraki yılı hedefle
-  // Eğer henüz bu yılın 8 Mart'ı gelmediyse bu yılı hedefle
   var target=new Date(year,2,8,0,0,0,0);
-  // Eğer şu an 8 Mart'ın başlangıcına eşit veya geçmişse → gelecek yıl
   if(now.getTime()>=target.getTime()){
     target=new Date(year+1,2,8,0,0,0,0);
   }
